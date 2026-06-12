@@ -1,0 +1,110 @@
+{
+  "schema_version": "0.1",
+  "created": "2026-06-10",
+  "target_outcome": "Discover traceable skill-audit capabilities, adjacent review surfaces, and raw signals for agent skills or method packages that a first-pass audit-skill search would likely miss.",
+  "why_now": "Agent skill packages are spreading across runtimes and registries, so discovery needs reusable skill-audit candidates before any adoption or package-quality gate.",
+  "day1_answer": {
+    "expected_source": "agent skill repositories, local runtime skills, and quality-review playbooks",
+    "because": "skill audit capabilities are more likely to appear as review skills, rubrics, package-method checklists, or adjacent code-review workflows than as a single marketplace category",
+    "actual_outcome": "return multiple traceable skill-audit candidates and raw signals without deciding which one to use",
+    "timing_hypothesis": "the category is active enough to have review rubrics and package-method examples, but immature enough that discovery must include adjacent review workflows",
+    "out_of_scope": [
+      "auditing a specific skill",
+      "approving a package",
+      "installing or enabling a review skill",
+      "source or safety verdicts"
+    ]
+  },
+  "constraints": {
+    "runtime": [
+      "agent skills"
+    ],
+    "ecosystem": [
+      "skill repositories",
+      "runtime skill caches",
+      "package-method playbooks",
+      "code-review workflows"
+    ],
+    "language_or_region": [],
+    "excluded_capabilities": [
+      "generic code review with no skill/package-method rubric",
+      "security audit of source code only",
+      "marketplace ranking",
+      "install manager"
+    ]
+  },
+  "lanes": [
+    {
+      "lane_id": "skill-audit",
+      "target_outcome": "Find skill-audit candidates for reviewing agent skills and method packages before adoption gates.",
+      "out_of_scope": [
+        "source-code-only security audit",
+        "install or enable workflow",
+        "single winner selection"
+      ],
+      "priority_source_families": [
+        "source-repositories",
+        "runtime-spec-docs",
+        "curated-community-indexes",
+        "skill-registries-search-indexes"
+      ],
+      "known_false_positives": [
+        "generic code-review checklists without skill trigger or runtime-fit criteria",
+        "marketplace rating pages with no audit rubric"
+      ]
+    }
+  ],
+  "rounds": [
+    {
+      "round": "R1",
+      "purpose": "expand skill-audit source surface",
+      "queries": [
+        "skill quality review skill",
+        "agent skill audit rubric",
+        "SKILL.md review checklist",
+        "prompt skill package audit"
+      ],
+      "source_families": [
+        "source-repositories",
+        "runtime-spec-docs",
+        "curated-community-indexes",
+        "skill-registries-search-indexes"
+      ],
+      "notes": [
+        "Keep review skills, rubrics, and package-method workflows visible as separate candidate surfaces."
+      ]
+    },
+    {
+      "round": "R2",
+      "purpose": "correct generic code-review bias",
+      "queries": [
+        "agent skill trigger accuracy review",
+        "progressive disclosure skill review",
+        "runtime fit skill audit",
+        "skill validation integrity checklist"
+      ],
+      "source_families": [
+        "source-repositories",
+        "runtime-spec-docs",
+        "curated-community-indexes"
+      ],
+      "notes": [
+        "Reject generic code review unless it explicitly covers skill/package-method boundaries."
+      ]
+    },
+    {
+      "round": "R3",
+      "purpose": "shape skill-audit candidate pool",
+      "queries": [],
+      "source_families": [
+        "source-repositories",
+        "runtime-spec-docs",
+        "curated-community-indexes",
+        "skill-registries-search-indexes"
+      ],
+      "notes": [
+        "Candidate pool preserves raw signals and deferred adoption-stage boundaries only."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,342 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/its-How/aha-skills-finder/blob/main/aha-skills-finder/schemas/candidate-pool.schema.json",
+  "title": "Aha Skills Finder Candidate Pool",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "created",
+    "target_outcome",
+    "find_stage_boundary",
+    "source_gaps",
+    "false_positives",
+    "candidates"
+  ],
+  "properties": {
+    "schema_version": { "const": "0.1" },
+    "artifact_type": { "enum": ["research-output", "synthetic-fixture"] },
+    "created": { "type": "string", "format": "date" },
+    "target_outcome": { "type": "string", "minLength": 10 },
+    "lane_id": {
+      "type": "string",
+      "description": "Optional lane id when a mixed outcome has been split before search. One candidate pool should describe one lane.",
+      "pattern": "^[a-z0-9][a-z0-9-]*$"
+    },
+    "lane_description": {
+      "type": "string",
+      "description": "Optional lane-specific scope note, including adjacent lanes that are out of scope for this pool.",
+      "minLength": 1
+    },
+    "why_now": { "type": "string", "minLength": 1 },
+    "find_stage_boundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["does", "does_not"],
+      "properties": {
+        "does": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string" }
+        },
+        "does_not": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "source_gaps": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "false_positives": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "source_url", "why_false_positive", "query_correction"],
+        "properties": {
+          "name": { "type": "string", "minLength": 1 },
+          "source_url": { "type": "string", "minLength": 1 },
+          "lane_id": {
+            "type": ["string", "null"],
+            "description": "Lane where this candidate is a false positive. Null means the artifact did not use lane decomposition.",
+            "pattern": "^[a-z0-9][a-z0-9-]*$"
+          },
+          "why_false_positive": { "type": "string", "minLength": 1 },
+          "could_be_valid_in_lanes": {
+            "type": "array",
+            "description": "Other lanes where this candidate may be valid; this prevents lane-relative false positives from becoming global rejections.",
+            "items": {
+              "type": "string",
+              "pattern": "^[a-z0-9][a-z0-9-]*$"
+            }
+          },
+          "query_correction": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "candidates": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "candidate_id",
+          "name",
+          "source",
+          "entrypoint_url",
+          "candidate_type",
+          "target_outcome",
+          "outcome_mode",
+          "query_branch",
+          "metrics",
+          "find_signals",
+          "signal_completeness",
+          "false_positive_note",
+          "deferred_boundary_tags",
+          "notes"
+        ],
+        "properties": {
+          "candidate_id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$" },
+          "name": { "type": "string", "minLength": 1 },
+          "candidate_role": {
+            "enum": ["capability", "discovery-source", "adjacent-index", "adjacent-tooling", "registry-index"],
+            "description": "Optional role for separating ordinary capability candidates from source, index, and adjacent tooling candidates. discovery-source, adjacent-index, adjacent-tooling, and registry-index entries are recall surfaces only and must not be treated as an adoption shortlist."
+          },
+          "source": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["source_family", "source_url", "repo_url"],
+            "properties": {
+              "source_family": { "type": "string", "minLength": 1 },
+              "source_url": { "type": "string", "minLength": 1 },
+              "repo_url": { "type": ["string", "null"] }
+            }
+          },
+          "entrypoint_url": { "type": "string", "minLength": 1 },
+          "candidate_type": {
+            "enum": [
+              "skill",
+              "scripted-skill",
+              "prompt-only",
+              "docs-only",
+              "mcp",
+              "cli",
+              "plugin",
+              "registry-search-index",
+              "curated-list",
+              "extension",
+              "saas-provider",
+              "repo-tool",
+              "native-framework-capability"
+            ]
+          },
+          "candidate_surfaces": {
+            "type": "array",
+            "description": "Optional finer surface tags for handoff typing, for example agent-skill, mcp-server, cli, package, web-editor, desktop-app, browser-extension, hosted-saas, official-api, native-runtime, source-repo, registry-index, curated-list, skill-library, skill-finder, skill-router, skill-manager, skill-installer, skill-marketplace, mcp-loader, skill-retrieval, skill-distillation, docs, prompt. Tags are descriptive raw signals, not rankings.",
+            "items": {
+              "enum": [
+                "agent-skill",
+                "mcp-server",
+                "cli",
+                "package",
+                "web-editor",
+                "desktop-app",
+                "browser-extension",
+                "hosted-saas",
+                "official-api",
+                "native-runtime",
+                "source-repo",
+                "registry-index",
+                "curated-list",
+                "skill-library",
+                "skill-finder",
+                "skill-router",
+                "skill-manager",
+                "skill-installer",
+                "skill-marketplace",
+                "mcp-loader",
+                "skill-retrieval",
+                "skill-distillation",
+                "docs",
+                "prompt"
+              ]
+            }
+          },
+          "target_outcome": { "type": "string", "minLength": 10 },
+          "outcome_mode": { "type": "string", "minLength": 1 },
+          "query_branch": {
+            "enum": [
+              "skill-native",
+              "runtime-spec",
+              "source-code",
+              "package-cli",
+              "registry-search-index",
+              "outcome-native",
+              "extension-saas",
+              "mcp-agent-tool-catalog",
+              "false-positive-mining",
+              "curated-community",
+              "curated-recommended",
+              "package-registry",
+              "skill-tooling"
+            ]
+          },
+          "metrics": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["installs", "stars", "forks", "star_velocity", "first_seen", "last_update"],
+            "properties": {
+              "installs": { "type": ["integer", "null"], "minimum": 0 },
+              "download_signals": {
+                "type": "array",
+                "description": "Optional install/download/invocation raw signals. Capture source, period, and count when available; record gaps in source_gaps when unavailable. These are not quality, safety, or adoption verdicts.",
+                "minItems": 1,
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": ["source", "count"],
+                  "properties": {
+                    "source": { "type": "string", "minLength": 1 },
+                    "period": {
+                      "anyOf": [
+                        { "type": "string", "minLength": 1 },
+                        { "type": "null" }
+                      ]
+                    },
+                    "count": { "type": ["integer", "null"], "minimum": 0 },
+                    "source_url": {
+                      "anyOf": [
+                        { "type": "string", "minLength": 1 },
+                        { "type": "null" }
+                      ]
+                    },
+                    "note": {
+                      "anyOf": [
+                        { "type": "string", "minLength": 1 },
+                        { "type": "null" }
+                      ]
+                    }
+                  }
+                }
+              },
+              "stars": { "type": ["integer", "null"], "minimum": 0 },
+              "forks": { "type": ["integer", "null"], "minimum": 0 },
+              "star_velocity": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["days_7", "days_30", "days_90"],
+                "properties": {
+                  "days_7": { "type": ["integer", "null"] },
+                  "days_30": { "type": ["integer", "null"] },
+                  "days_90": { "type": ["integer", "null"] }
+                }
+              },
+              "recent_growth_proxy": {
+                "type": ["object", "null"],
+                "description": "Fallback freshness signal when true 7/30/90 day star velocity is unavailable. This is not a maintenance or quality verdict.",
+                "additionalProperties": false,
+                "required": ["basis", "summary"],
+                "properties": {
+                  "basis": {
+                    "type": "array",
+                    "minItems": 1,
+                    "items": { "type": "string", "minLength": 1 }
+                  },
+                  "summary": { "type": "string", "minLength": 1 }
+                }
+              },
+              "first_seen": { "type": ["string", "null"] },
+              "last_update": { "type": ["string", "null"] }
+            }
+          },
+          "registry_stats": {
+            "type": "object",
+            "description": "Optional registry-native raw signals for skills or capabilities found through marketplace/API/search endpoints. These fields are discovery signals only; they are not safety proof, source audit, maintenance verdict, or adoption recommendation.",
+            "additionalProperties": false,
+            "required": [
+              "registry",
+              "slug",
+              "version",
+              "downloads",
+              "installs_all_time",
+              "installs_current",
+              "stars",
+              "file_count",
+              "file_hashes_available",
+              "registry_security_status"
+            ],
+            "properties": {
+              "registry": { "type": "string", "minLength": 1 },
+              "slug": { "type": "string", "minLength": 1 },
+              "version": { "type": ["string", "null"] },
+              "downloads": { "type": ["integer", "null"], "minimum": 0 },
+              "installs_all_time": { "type": ["integer", "null"], "minimum": 0 },
+              "installs_current": { "type": ["integer", "null"], "minimum": 0 },
+              "stars": { "type": ["integer", "null"], "minimum": 0 },
+              "file_count": { "type": ["integer", "null"], "minimum": 0 },
+              "file_hashes_available": { "type": ["boolean", "null"] },
+              "registry_security_status": {
+                "type": ["string", "null"],
+                "description": "Registry-provided scan/status label as a raw signal only. Do not treat clean/verified labels as safety proof."
+              }
+            }
+          },
+          "package_registry_stats": {
+            "type": "object",
+            "description": "Optional package-registry raw signals. Package names, versions, descriptions, repository URLs, keywords, publish/update dates, and downloads are discovery signals only; they are not safety proof, source audit, maintenance verdict, or adoption recommendation.",
+            "additionalProperties": false,
+            "required": [
+              "registry",
+              "package_name",
+              "version",
+              "description",
+              "repository_url",
+              "downloads",
+              "downloads_period",
+              "created",
+              "modified"
+            ],
+            "properties": {
+              "registry": { "type": "string", "minLength": 1 },
+              "package_name": { "type": "string", "minLength": 1 },
+              "version": { "type": ["string", "null"] },
+              "description": { "type": ["string", "null"] },
+              "repository_url": { "type": ["string", "null"] },
+              "downloads": { "type": ["integer", "null"], "minimum": 0 },
+              "downloads_period": { "type": ["string", "null"] },
+              "created": { "type": ["string", "null"] },
+              "modified": { "type": ["string", "null"] },
+              "keywords": {
+                "type": "array",
+                "items": { "type": "string", "minLength": 1 }
+              },
+              "raw_claims": {
+                "type": "array",
+                "description": "Claims copied or paraphrased from package metadata or README. These must remain raw signals.",
+                "items": { "type": "string", "minLength": 1 }
+              }
+            }
+          },
+          "find_signals": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "signal_completeness": { "enum": ["high", "medium", "low", "unknown"] },
+          "false_positive_note": { "type": ["string", "null"] },
+          "deferred_boundary_tags": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "notes": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        }
+      }
+    }
+  }
+}

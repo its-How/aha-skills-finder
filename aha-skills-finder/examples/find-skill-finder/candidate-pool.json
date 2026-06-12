@@ -1,0 +1,256 @@
+{
+  "schema_version": "0.1",
+  "artifact_type": "research-output",
+  "created": "2026-06-09",
+  "target_outcome": "Discover traceable skills for finding or discovering agent skills, adjacent discovery surfaces, and raw signals that a first-pass skill-finder search would likely miss.",
+  "why_now": "Agent skill registries, MCP/tool catalogs, and repeated discovery failures are mature enough to justify a reusable discovery method now.",
+  "find_stage_boundary": {
+    "does": [
+      "discovers multiple candidates",
+      "records source families and raw signals"
+    ],
+    "does_not": [
+      "does not make adopt/use decisions",
+      "does not recommend, approve, install, enable, configure, publish, deploy, login, execute, or mutate runtime config for capabilities",
+      "does not perform source, safety, permission, maintenance, credential, browser, provider, live, or external-write audit"
+    ]
+  },
+  "source_gaps": [
+    "Install counts are uneven across registries.",
+    "Some hosted indexes expose pages but not stable APIs.",
+    "Recent growth signals need registry-specific collection."
+  ],
+  "false_positives": [
+    {
+      "name": "GitHub prompt-library topic",
+      "source_url": "https://github.com/topics/prompt-library",
+      "why_false_positive": "Often returns prompt collections rather than traceable skill-discovery workflows.",
+      "query_correction": "Add registry, marketplace, SKILL.md, candidate pool, or install signal terms."
+    }
+  ],
+  "candidates": [
+    {
+      "candidate_id": "agentspace-find-skills",
+      "name": "agentspace-so find-skills",
+      "source": {
+        "source_family": "source-repositories",
+        "source_url": "https://github.com/agentspace-so/skills/tree/main/find-skills",
+        "repo_url": "https://github.com/agentspace-so/skills"
+      },
+      "entrypoint_url": "https://github.com/agentspace-so/skills/blob/main/find-skills/SKILL.md",
+      "candidate_type": "skill",
+      "candidate_role": "capability",
+      "target_outcome": "Discover traceable skills for finding or discovering agent skills, adjacent discovery surfaces, and raw signals that a first-pass skill-finder search would likely miss.",
+      "outcome_mode": "direct skill discovery workflow",
+      "query_branch": "source-code",
+      "metrics": {
+        "installs": null,
+        "stars": null,
+        "forks": null,
+        "star_velocity": { "days_7": null, "days_30": null, "days_90": null },
+        "first_seen": null,
+        "last_update": null
+      },
+      "find_signals": [
+        "has SKILL.md entrypoint",
+        "directly targets finding skills"
+      ],
+      "signal_completeness": "low",
+      "false_positive_note": null,
+      "deferred_boundary_tags": [
+        "deferred-source-boundary",
+        "deferred-safety-boundary",
+        "consumer-validation-boundary"
+      ],
+      "notes": [
+        "Directly shaped as a skill.",
+        "Find-stage artifact does not prove fit for use."
+      ]
+    },
+    {
+      "candidate_id": "skillsgate",
+      "name": "Skillsgate",
+      "source": {
+        "source_family": "skill-registries-search-indexes",
+        "source_url": "https://github.com/skillsgate/skillsgate",
+        "repo_url": "https://github.com/skillsgate/skillsgate"
+      },
+      "entrypoint_url": "https://github.com/skillsgate/skillsgate",
+      "candidate_type": "registry-search-index",
+      "candidate_role": "discovery-source",
+      "target_outcome": "Discover traceable skills for finding or discovering agent skills, adjacent discovery surfaces, and raw signals that a first-pass skill-finder search would likely miss.",
+      "outcome_mode": "hosted or indexed discovery surface",
+      "query_branch": "registry-search-index",
+      "metrics": {
+        "installs": null,
+        "stars": null,
+        "forks": null,
+        "star_velocity": { "days_7": null, "days_30": null, "days_90": null },
+        "first_seen": null,
+        "last_update": null
+      },
+      "find_signals": [
+        "registry/search index candidate",
+        "broadens discovery surface beyond local skill"
+      ],
+      "signal_completeness": "low",
+      "false_positive_note": null,
+      "deferred_boundary_tags": [
+        "deferred-source-boundary",
+        "source-only",
+        "consumer-validation-boundary"
+      ],
+      "notes": [
+        "Useful as discovery surface, not necessarily an installable skill."
+      ]
+    },
+    {
+      "candidate_id": "skillx-hosted-index",
+      "name": "SkillX hosted index",
+      "source": {
+        "source_family": "skill-registries-search-indexes",
+        "source_url": "https://skillx.sh/",
+        "repo_url": "https://github.com/nextlevelbuilder/skillx"
+      },
+      "entrypoint_url": "https://skillx.sh/",
+      "candidate_type": "registry-search-index",
+      "candidate_role": "discovery-source",
+      "target_outcome": "Discover traceable skills for finding or discovering agent skills, adjacent discovery surfaces, and raw signals that a first-pass skill-finder search would likely miss.",
+      "outcome_mode": "hosted skill search surface",
+      "query_branch": "registry-search-index",
+      "metrics": {
+        "installs": null,
+        "stars": null,
+        "forks": null,
+        "star_velocity": { "days_7": null, "days_30": null, "days_90": null },
+        "first_seen": null,
+        "last_update": null
+      },
+      "find_signals": [
+        "hosted search/index surface",
+        "source repo is traceable"
+      ],
+      "signal_completeness": "low",
+      "false_positive_note": null,
+      "deferred_boundary_tags": [
+        "deferred-source-boundary",
+        "source-only",
+        "consumer-validation-boundary"
+      ],
+      "notes": [
+        "Candidate broadens recall beyond GitHub code search."
+      ]
+    },
+    {
+      "candidate_id": "tech-leads-agent-skills",
+      "name": "tech-leads-club agent-skills",
+      "source": {
+        "source_family": "curated-community-indexes",
+        "source_url": "https://github.com/tech-leads-club/agent-skills",
+        "repo_url": "https://github.com/tech-leads-club/agent-skills"
+      },
+      "entrypoint_url": "https://github.com/tech-leads-club/agent-skills",
+      "candidate_type": "repo-tool",
+      "candidate_role": "discovery-source",
+      "target_outcome": "Discover traceable skills for finding or discovering agent skills, adjacent discovery surfaces, and raw signals that a first-pass skill-finder search would likely miss.",
+      "outcome_mode": "curated skill source surface",
+      "query_branch": "curated-community",
+      "metrics": {
+        "installs": null,
+        "stars": null,
+        "forks": null,
+        "star_velocity": { "days_7": null, "days_30": null, "days_90": null },
+        "first_seen": null,
+        "last_update": null
+      },
+      "find_signals": [
+        "curated repository",
+        "agent skill source list"
+      ],
+      "signal_completeness": "low",
+      "false_positive_note": null,
+      "deferred_boundary_tags": [
+        "deferred-source-boundary",
+        "source-only",
+        "consumer-validation-boundary"
+      ],
+      "notes": [
+        "Useful for recall even when not a single installable skill."
+      ]
+    },
+    {
+      "candidate_id": "mcp-directory-skill-lookup",
+      "name": "MCP Directory skill lookup",
+      "source": {
+        "source_family": "mcp-agent-tool-catalogs",
+        "source_url": "https://mcp.directory/skills/skill-lookup",
+        "repo_url": null
+      },
+      "entrypoint_url": "https://mcp.directory/skills/skill-lookup",
+      "candidate_type": "mcp",
+      "candidate_role": "capability",
+      "target_outcome": "Discover traceable skills for finding or discovering agent skills, adjacent discovery surfaces, and raw signals that a first-pass skill-finder search would likely miss.",
+      "outcome_mode": "agent-callable lookup surface",
+      "query_branch": "mcp-agent-tool-catalog",
+      "metrics": {
+        "installs": null,
+        "stars": null,
+        "forks": null,
+        "star_velocity": { "days_7": null, "days_30": null, "days_90": null },
+        "first_seen": null,
+        "last_update": null
+      },
+      "find_signals": [
+        "MCP-shaped lookup capability",
+        "adjacent callable discovery path"
+      ],
+      "signal_completeness": "low",
+      "false_positive_note": null,
+      "deferred_boundary_tags": [
+        "mcp-enable-boundary",
+        "deferred-permission-boundary",
+        "consumer-validation-boundary"
+      ],
+      "notes": [
+        "Find-stage records it without enabling MCP."
+      ]
+    },
+    {
+      "candidate_id": "skillsmp-api",
+      "name": "SkillsMP API",
+      "source": {
+        "source_family": "skill-registries-search-indexes",
+        "source_url": "https://skillsmp.com/docs/api",
+        "repo_url": null
+      },
+      "entrypoint_url": "https://skillsmp.com/docs/api",
+      "candidate_type": "registry-search-index",
+      "candidate_role": "discovery-source",
+      "target_outcome": "Discover traceable skills for finding or discovering agent skills, adjacent discovery surfaces, and raw signals that a first-pass skill-finder search would likely miss.",
+      "outcome_mode": "large-scale registry API surface",
+      "query_branch": "registry-search-index",
+      "metrics": {
+        "installs": null,
+        "stars": null,
+        "forks": null,
+        "star_velocity": { "days_7": null, "days_30": null, "days_90": null },
+        "first_seen": null,
+        "last_update": null
+      },
+      "find_signals": [
+        "API documentation for registry/search access",
+        "promises broad SKILL.md recall surface"
+      ],
+      "signal_completeness": "low",
+      "false_positive_note": null,
+      "deferred_boundary_tags": [
+        "deferred-source-boundary",
+        "source-only",
+        "consumer-validation-boundary"
+      ],
+      "notes": [
+        "Useful for discovery coverage; API use remains a separate later gate."
+      ]
+    }
+  ]
+}

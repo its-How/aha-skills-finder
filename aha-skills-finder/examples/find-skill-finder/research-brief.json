@@ -1,0 +1,84 @@
+{
+  "schema_version": "0.1",
+  "created": "2026-06-09",
+  "target_outcome": "Discover traceable skills for finding or discovering agent skills, adjacent discovery surfaces, and raw signals that a first-pass skill-finder search would likely miss.",
+  "why_now": "Agent skills, registries, MCP/tool catalogs, and repeated discovery needs have converged enough for a reusable open discovery skill to matter now.",
+  "day1_answer": {
+    "expected_source": "skill registries and GitHub monorepos",
+    "because": "current discovery capabilities are likely spread across skill indexes, source repositories, and adjacent tool catalogs rather than one marketplace",
+    "actual_outcome": "return multiple traceable candidate skills for skill finding or skill discovery, plus raw signals, without making adopt/use decisions",
+    "timing_hypothesis": "the category is newly active enough that recent surfaces matter, but mature enough to have traceable registries and repos",
+    "out_of_scope": [
+      "installing or enabling a discovery skill",
+      "source or safety audit",
+      "single-candidate selection"
+    ]
+  },
+  "constraints": {
+    "runtime": [
+      "agent skills"
+    ],
+    "ecosystem": [
+      "skill registries",
+      "GitHub",
+      "MCP/tool catalogs"
+    ],
+    "language_or_region": [],
+    "excluded_capabilities": [
+      "ranking model",
+      "marketplace backend",
+      "install manager"
+    ]
+  },
+  "rounds": [
+    {
+      "round": "R1",
+      "purpose": "expand source surface",
+      "queries": [
+        "agent skill finder",
+        "skill discovery SKILL.md",
+        "agent skill marketplace search",
+        "SKILL.md skill finder"
+      ],
+      "source_families": [
+        "skill-registries-search-indexes",
+        "source-repositories",
+        "mcp-agent-tool-catalogs",
+        "curated-community-indexes"
+      ],
+      "notes": [
+        "The discovery surface matters more than choosing one early candidate."
+      ]
+    },
+    {
+      "round": "R2",
+      "purpose": "correct narrow query bias",
+      "queries": [
+        "skill registry API",
+        "agent skills leaderboard",
+        "MCP skill lookup"
+      ],
+      "source_families": [
+        "skill-registries-search-indexes",
+        "mcp-agent-tool-catalogs"
+      ],
+      "notes": [
+        "Adjacent registry and lookup surfaces can be useful for finding skill-finder or skill-discovery skills, even when the surfaces are not installable skills."
+      ]
+    },
+    {
+      "round": "R3",
+      "purpose": "shape candidate pool",
+      "queries": [],
+      "source_families": [
+        "source-repositories",
+        "skill-registries-search-indexes",
+        "mcp-agent-tool-catalogs",
+        "curated-community-indexes"
+      ],
+      "notes": [
+        "Candidate pool should preserve raw signals and deferred boundaries."
+      ]
+    }
+  ]
+}
