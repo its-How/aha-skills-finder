@@ -55,7 +55,7 @@
       "candidate_id": "moonrunnerkc-skillcheck",
       "name": "moonrunnerkc/skillcheck",
       "source": {
-        "source_family": "GitHub repository search",
+        "source_family": "source-repositories",
         "source_url": "https://github.com/moonrunnerkc/skillcheck",
         "repo_url": "https://github.com/moonrunnerkc/skillcheck"
       },
@@ -113,7 +113,7 @@
       "candidate_id": "joeynyc-skillscore",
       "name": "joeynyc/skillscore",
       "source": {
-        "source_family": "GitHub repository search and npm package registry",
+        "source_family": "package-registries",
         "source_url": "https://github.com/joeynyc/skillscore",
         "repo_url": "https://github.com/joeynyc/skillscore"
       },
@@ -181,7 +181,7 @@
       "candidate_id": "nvidia-skillspector",
       "name": "NVIDIA/SkillSpector",
       "source": {
-        "source_family": "GitHub repository search",
+        "source_family": "source-repositories",
         "source_url": "https://github.com/NVIDIA/SkillSpector",
         "repo_url": "https://github.com/NVIDIA/SkillSpector"
       },

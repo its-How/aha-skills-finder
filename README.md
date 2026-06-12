@@ -35,15 +35,15 @@ Run from the repository root:
 ```bash
 python3 aha-skills-finder/scripts/validate-candidate-pool.py aha-skills-finder/examples/find-skill-finder/candidate-pool.json
 python3 aha-skills-finder/scripts/validate-candidate-pool.py aha-skills-finder/examples/find-skill-audit/candidate-pool.json
-quick_validate.py aha-skills-finder
+python3 aha-skills-finder/scripts/validate-skill.py aha-skills-finder
 ```
 
-`quick_validate.py` means any equivalent SKILL.md frontmatter validator available in the consuming runtime.
+`validate-skill.py` checks the portable `SKILL.md` frontmatter contract. Runtime-specific validators may add stricter checks.
 
 ## Repository Boundary
 
 This is the standalone repository shape for `aha-skills-finder`.
 
-Do not add unrelated skills to this repo. `bigdeal-supplier-finder` belongs in its own independent repository because it has different users, package terms, validation risk, and live/provider boundaries.
+Do not add unrelated skills to this repo. Capabilities with different users, package terms, validation risk, or live/provider boundaries belong in separate repositories.
 
 License: MIT.
