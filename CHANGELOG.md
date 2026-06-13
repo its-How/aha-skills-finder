@@ -1,5 +1,12 @@
 # Changelog
 
+## v0.1.7
+
+- Uses a clean release line because npm `0.1.6` was published before the final
+  ClawHub source-registry API wording correction.
+- Keeps the `0.1.6` schema compatibility, publish guard, and multi-lane smoke
+  hardening unchanged.
+
 ## v0.1.6
 
 - Uses a clean release line because remote `v0.1.5` tag already existed before

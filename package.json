@@ -1,6 +1,6 @@
 {
   "name": "aha-skills-finder",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "Agent skill package for find-stage skill and capability discovery.",
   "repository": {
     "type": "git",
