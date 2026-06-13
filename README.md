@@ -25,7 +25,7 @@ This repository is written for agents and automated consumers, not for tutorials
 | `aha-skills-finder/schemas/` | Research brief and candidate pool schemas |
 | `aha-skills-finder/scripts/` | Local validators and optional network-read-only metric collectors |
 | `aha-skills-finder/examples/` | Canonical find-stage artifacts |
-| `aha-skills-finder/adapters/` | Optional runtime metadata policy; no validated adapter claim |
+| Runtime adapters | None included; add only after evidence-gated validation |
 
 The npm package shape has no `bin`, `main`, or `exports` entry. If a version is
 published to npm, it distributes the skill directory and validation files only;

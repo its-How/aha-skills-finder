@@ -8,17 +8,19 @@
   (fork, competitor, superset, subset, related-registry-entry, etc.).
 - Adds `claims`/`verified` split for structured third-party claim tracking.
 - Fixes `validate-candidate-pool.py` to work from any working directory.
-- Adds stopping conditions to SKILL.md: round budget, diminishing returns,
-  coverage saturation, hard limit.
+- Tightens stopping conditions in SKILL.md around explicit handoff coverage,
+  source gaps, query expansion, cross-map, candidate typing, and runtime limits.
 - Specifies R1b cross-map evidence placement in candidate pool fields.
 - Adds guidance for handling R2-discovered candidates that R1 missed.
 - Acknowledges skills.sh and ClawHub have no public search APIs in
   sources.yaml and curated-skill-lists.yaml.
 - Adds multi-lane example (`find-skill-multi-lane`) with lane decomposition.
+- Adds deterministic package inventory guard to block missing skill files,
+  placeholder adapters, or accidental `bin`/`main`/`exports` package surface.
 
 ## v0.1.4
 
-- Adds thin npm package metadata for distributing the portable skill directory
+- Adds npm file-distribution package metadata for distributing the portable skill directory
   and validation assets.
 - Adds npm scripts for deterministic candidate-pool, research-brief JSON, and
   `SKILL.md` frontmatter validation.

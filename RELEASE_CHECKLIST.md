@@ -13,7 +13,6 @@ The package must include:
 - `aha-skills-finder/schemas/`
 - `aha-skills-finder/scripts/`
 - `aha-skills-finder/examples/`
-- `aha-skills-finder/adapters/README.md` as adapter policy only
 - root docs: `README.md`, `INSTALL.md`, `USAGE.md`, `SECURITY.md`,
   `CONTRIBUTING.md`, `CHANGELOG.md`, `OPEN_SOURCE_AUDIT.md`,
   `RELEASE_CHECKLIST.md`, `SUPPORT.md`
@@ -22,8 +21,8 @@ The package must include:
 
 ## Boundary Checks
 
-- Adapter files are policy or metadata only unless a named runtime validator is
-  added.
+- Runtime adapter files are not included. Add them only after a named runtime
+  schema and validator exist.
 - `aha-skills-finder/scripts/collect-github-metrics.py` is an optional
   network-read-only helper. It is outside the offline smoke path and does not
   prove quality, safety, maintenance, adoption, runtime loading, or registry
@@ -35,3 +34,23 @@ The package must include:
   candidate safety, or adoption fit.
 - The npm shape has no `bin`, `main`, or `exports`; do not describe it as a CLI
   or JavaScript import API.
+
+## Channel Gates
+
+- Package inventory assertion: verify `npm pack --dry-run` includes the skill
+  directory, root governance docs, `LICENSE`, and `package.json`, and no `bin`,
+  `main`, or `exports` claim.
+- Fresh npm install smoke: from a temporary directory, install the published
+  package from the intended registry and verify
+  `node_modules/aha-skills-finder/aha-skills-finder/SKILL.md` exists. Record a
+  receipt before claiming npm distribution works.
+- GitHub release: tag, push, and release creation are external writes and require
+  exact approval plus a release URL receipt.
+- npm publish: requires exact approval, account/2FA handling only by the user or
+  explicitly authorized token flow, and an npm registry receipt. It does not
+  prove runtime loading, registry acceptance, or adoption.
+- Marketplace or skill-registry submission: before submitting, record the target
+  schema, account/auth requirement, write action, safety boundary, and overclaim
+  boundary. Submission does not prove acceptance.
+- Public announcement: requires exact channel/content approval and a URL or
+  screenshot receipt. Announcement does not prove adoption.

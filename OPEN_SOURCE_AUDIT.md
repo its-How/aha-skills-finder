@@ -20,7 +20,7 @@ aha-skills-finder/
   package.json
   aha-skills-finder/
     SKILL.md
-    adapters/
+    # no runtime adapters in this package
     examples/
     schemas/
     scripts/

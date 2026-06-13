@@ -1,7 +1,7 @@
 # Install
 
-`aha-skills-finder` is distributed as a portable skill directory plus a thin npm
-package shape for file distribution and deterministic validation:
+`aha-skills-finder` is distributed as a portable skill directory plus an npm
+file-distribution package shape for deterministic validation:
 
 ```text
 aha-skills-finder/
