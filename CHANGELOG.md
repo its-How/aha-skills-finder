@@ -1,5 +1,17 @@
 # Changelog
 
+## v0.1.3
+
+- Adds GitHub Actions CI for deterministic candidate-pool, skill frontmatter,
+  and research-brief validation.
+- Adds GitHub issue templates for deterministic bugs and candidate source
+  suggestions, with boundary checks against credential, browser, provider, live,
+  and external-write material.
+- Adds README CI badge backed by the new workflow.
+- Adds `SUPPORT.md` with maintained scope, version policy, issue policy, and
+  explicit gates for adapters, registry submission, marketplace listing,
+  plugin/MCP packaging, npm publication, or live/provider behavior.
+
 ## v0.1.2
 
 - Local hardening version after the GitHub `v0.1.1` release already existed.
