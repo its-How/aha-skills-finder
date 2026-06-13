@@ -1,5 +1,21 @@
 # Changelog
 
+## v0.1.5
+
+- Makes `star_velocity` and `installs` nullable in candidate-pool schema to
+  match real-world data availability.
+- Adds `adjacent_candidates` field for expressing candidate relationships
+  (fork, competitor, superset, subset, related-registry-entry, etc.).
+- Adds `claims`/`verified` split for structured third-party claim tracking.
+- Fixes `validate-candidate-pool.py` to work from any working directory.
+- Adds stopping conditions to SKILL.md: round budget, diminishing returns,
+  coverage saturation, hard limit.
+- Specifies R1b cross-map evidence placement in candidate pool fields.
+- Adds guidance for handling R2-discovered candidates that R1 missed.
+- Acknowledges skills.sh and ClawHub have no public search APIs in
+  sources.yaml and curated-skill-lists.yaml.
+- Adds multi-lane example (`find-skill-multi-lane`) with lane decomposition.
+
 ## v0.1.4
 
 - Adds thin npm package metadata for distributing the portable skill directory
