@@ -13,6 +13,7 @@ This repository is written for agents and automated consumers, not for tutorials
 - [Release checklist](RELEASE_CHECKLIST.md): verify the portable skill inventory and evidence boundaries.
 - [Contribute](CONTRIBUTING.md): keep changes inside the find-stage boundary.
 - [Security](SECURITY.md): report package issues without adding credential, browser, provider, or live behavior.
+- [Support](SUPPORT.md): understand maintained scope and issue boundaries.
 
 ## Package
 

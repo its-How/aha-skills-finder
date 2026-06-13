@@ -16,7 +16,7 @@ The package must include:
 - `aha-skills-finder/adapters/README.md` as adapter policy only
 - root docs: `README.md`, `INSTALL.md`, `USAGE.md`, `SECURITY.md`,
   `CONTRIBUTING.md`, `CHANGELOG.md`, `OPEN_SOURCE_AUDIT.md`,
-  `RELEASE_CHECKLIST.md`
+  `RELEASE_CHECKLIST.md`, `SUPPORT.md`
 - root license: `LICENSE`
 
 ## Boundary Checks
