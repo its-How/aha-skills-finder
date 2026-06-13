@@ -190,7 +190,7 @@
             "additionalProperties": false,
             "required": ["installs", "stars", "forks", "star_velocity", "first_seen", "last_update"],
             "properties": {
-              "installs": { "type": ["integer", "null"], "minimum": 0 },
+              "installs": { "type": ["integer", "null"], "default": null, "minimum": 0 },
               "download_signals": {
                 "type": "array",
                 "description": "Optional install/download/invocation raw signals. Capture source, period, and count when available; record gaps in source_gaps when unavailable. These are not quality, safety, or adoption verdicts.",
@@ -226,7 +226,8 @@
               "stars": { "type": ["integer", "null"], "minimum": 0 },
               "forks": { "type": ["integer", "null"], "minimum": 0 },
               "star_velocity": {
-                "type": "object",
+                "type": ["object", "null"],
+                "default": null,
                 "additionalProperties": false,
                 "required": ["days_7", "days_30", "days_90"],
                 "properties": {
@@ -334,6 +335,37 @@
           "notes": {
             "type": "array",
             "items": { "type": "string" }
+          },
+          "adjacent_candidates": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "candidate_id": { "type": "string" },
+                "relationship": {
+                  "enum": ["fork", "competitor", "superset", "subset", "related-registry-entry", "shared-maintainer", "shared-ecosystem"]
+                },
+                "note": { "type": "string" }
+              },
+              "required": ["candidate_id", "relationship"]
+            }
+          },
+          "claims": {
+            "type": "object",
+            "additionalProperties": true,
+            "description": "What the tool claims about itself"
+          },
+          "claims_source": {
+            "type": "string",
+            "description": "URL to the claims page"
+          },
+          "verified": {
+            "type": "object",
+            "additionalProperties": true,
+            "description": "What was confirmed through verification"
+          },
+          "verified_method": {
+            "enum": ["source_inspection", "web_search_corroboration", "tool_smoke", "docs_only"]
           }
         }
       }

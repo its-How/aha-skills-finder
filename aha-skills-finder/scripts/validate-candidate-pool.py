@@ -55,6 +55,23 @@ ALLOWED_QUERY_BRANCHES = {
 
 ALLOWED_SIGNAL_COMPLETENESS = {"high", "medium", "low", "unknown"}
 
+ALLOWED_ADJACENT_RELATIONSHIPS = {
+    "fork",
+    "competitor",
+    "superset",
+    "subset",
+    "related-registry-entry",
+    "shared-maintainer",
+    "shared-ecosystem",
+}
+
+ALLOWED_VERIFIED_METHODS = {
+    "source_inspection",
+    "web_search_corroboration",
+    "tool_smoke",
+    "docs_only",
+}
+
 FORBIDDEN_FIND_STAGE_WORDS = {
     "best overall",
     "top choice",
@@ -335,6 +352,34 @@ def validate_candidate_pool(path: Path) -> None:
             term in signal_text for term in PUBLISH_BOUNDARY_TERMS
         ):
             fail(path, f"{candidate_id}: skill-marketplace surface requires explicit no-publish/publish-boundary language")
+
+        adjacent_candidates = candidate.get("adjacent_candidates", [])
+        if adjacent_candidates:
+            if not isinstance(adjacent_candidates, list):
+                fail(path, f"{candidate_id}: adjacent_candidates must be an array")
+            for adj_index, adj in enumerate(adjacent_candidates):
+                if not isinstance(adj, dict):
+                    fail(path, f"{candidate_id}: adjacent_candidates[{adj_index}] must be an object")
+                if "candidate_id" not in adj:
+                    fail(path, f"{candidate_id}: adjacent_candidates[{adj_index}] missing candidate_id")
+                if "relationship" not in adj:
+                    fail(path, f"{candidate_id}: adjacent_candidates[{adj_index}] missing relationship")
+                rel = adj.get("relationship")
+                if rel not in ALLOWED_ADJACENT_RELATIONSHIPS:
+                    fail(path, f"{candidate_id}: adjacent_candidates[{adj_index}] invalid relationship {rel!r}")
+                ref_id = adj.get("candidate_id")
+                if ref_id and ref_id not in seen_ids:
+                    print(f"warning: {candidate_id} adjacent_candidates[{adj_index}] references unknown candidate_id {ref_id!r}", file=sys.stderr)
+
+        has_claims = "claims" in candidate
+        has_verified = "verified" in candidate
+        if has_claims and not has_verified:
+            print(f"warning: {candidate_id} has claims but no verified field", file=sys.stderr)
+        if has_verified and not has_claims:
+            print(f"warning: {candidate_id} has verified but no claims field", file=sys.stderr)
+        verified_method = candidate.get("verified_method")
+        if verified_method is not None and verified_method not in ALLOWED_VERIFIED_METHODS:
+            fail(path, f"{candidate_id}: invalid verified_method {verified_method!r}")
 
 
 def main() -> int:
