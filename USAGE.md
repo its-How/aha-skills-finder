@@ -54,5 +54,7 @@ The skill is designed to produce:
 ## Optional GitHub Metrics Script
 
 `aha-skills-finder/scripts/collect-github-metrics.py` can collect raw GitHub repo
-signals when network access is available. It is not part of the offline smoke
-path and does not prove quality, safety, maintenance, or adoption readiness.
+signals when network access is available. It is a network-read-only optional
+helper, not part of the offline smoke path. Running it does not prove quality,
+safety, maintenance, adoption readiness, runtime loading, or registry
+freshness.

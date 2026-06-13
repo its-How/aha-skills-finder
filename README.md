@@ -8,6 +8,7 @@ This repository is written for agents and automated consumers, not for tutorials
 
 - [Install](INSTALL.md): copy the `aha-skills-finder/` skill directory into a runtime-managed skill location.
 - [Use](USAGE.md): run the bundled offline examples and ask an agent to produce find-stage artifacts.
+- [Release checklist](RELEASE_CHECKLIST.md): verify the portable skill inventory and evidence boundaries.
 - [Contribute](CONTRIBUTING.md): keep changes inside the find-stage boundary.
 - [Security](SECURITY.md): report package issues without adding credential, browser, provider, or live behavior.
 
@@ -19,9 +20,9 @@ This repository is written for agents and automated consumers, not for tutorials
 | `aha-skills-finder/sources.yaml` | Source-family catalog |
 | `aha-skills-finder/source-registries/` | Seed registries for discovery sources |
 | `aha-skills-finder/schemas/` | Research brief and candidate pool schemas |
-| `aha-skills-finder/scripts/` | Local validators and light metric collectors |
+| `aha-skills-finder/scripts/` | Local validators and optional network-read-only metric collectors |
 | `aha-skills-finder/examples/` | Canonical find-stage artifacts |
-| `aha-skills-finder/adapters/` | Optional runtime metadata policy |
+| `aha-skills-finder/adapters/` | Optional runtime metadata policy; no validated adapter claim |
 
 ## What It Does
 

@@ -27,6 +27,13 @@ cp -R aha-skills-finder /path/to/your/skills/
 
 Then restart or reload the runtime according to that runtime's own rules.
 
+## Uninstall / Rollback
+
+Remove the copied `aha-skills-finder/` directory from the runtime's skill
+directory, then reload or restart that runtime. This only rolls back the local
+portable skill copy; it does not change provider config, credentials, browser
+state, plugins, marketplaces, or external systems.
+
 ## Codex-Style Local Skill Directory
 
 If your Codex environment uses `CODEX_HOME`, a local install shape is:
