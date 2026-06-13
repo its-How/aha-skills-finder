@@ -13,17 +13,17 @@ From the repository root:
 ```bash
 python3 aha-skills-finder/scripts/validate-candidate-pool.py \
   aha-skills-finder/examples/find-skill-finder/candidate-pool.json \
-  aha-skills-finder/examples/find-skill-audit/candidate-pool.json
+  aha-skills-finder/examples/find-skill-audit/candidate-pool.json \
+  aha-skills-finder/examples/find-skill-multi-lane/candidate-pool.json
 python3 aha-skills-finder/scripts/validate-skill.py aha-skills-finder
-python3 -m json.tool aha-skills-finder/examples/find-skill-finder/research-brief.json >/dev/null
-python3 -m json.tool aha-skills-finder/examples/find-skill-audit/research-brief.json >/dev/null
+python3 aha-skills-finder/scripts/validate-schema-compat.py .
 ```
 
 Expected result:
 
-- both candidate-pool examples validate;
+- all bundled candidate-pool examples validate;
 - `SKILL.md` frontmatter validates;
-- bundled research briefs are valid JSON.
+- bundled candidate pools and research briefs match the shipped JSON schemas.
 
 This proves local structure only. It does not prove discovery quality, candidate
 safety, source quality, adoption fit, registry freshness, or runtime adapter

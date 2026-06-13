@@ -29,6 +29,8 @@ The package must include:
   freshness.
 - Local validators prove structure only, not runtime loading, source quality,
   candidate safety, registry freshness, or adoption fit.
+- Schema compatibility validation proves bundled examples match the shipped
+  JSON schemas. It does not prove real discovery quality or candidate fit.
 - `npm pack --dry-run` proves package contents only. It does not prove npm
   registry publication, marketplace acceptance, runtime loading, source quality,
   candidate safety, or adoption fit.
@@ -40,6 +42,9 @@ The package must include:
 - Package inventory assertion: verify `npm pack --dry-run` includes the skill
   directory, root governance docs, `LICENSE`, and `package.json`, and no `bin`,
   `main`, or `exports` claim.
+- Local release check: run `npm run release:check`. The `prepublishOnly` guard
+  also runs `npm test` before `npm publish`, but it is not a substitute for
+  exact publish approval and registry receipt capture.
 - Fresh npm install smoke: from a temporary directory, install the published
   package from the intended registry and verify
   `node_modules/aha-skills-finder/aha-skills-finder/SKILL.md` exists. Record a

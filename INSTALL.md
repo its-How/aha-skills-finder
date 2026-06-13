@@ -77,8 +77,10 @@ You can evaluate the package without copying it into a runtime:
 ```bash
 python3 aha-skills-finder/scripts/validate-candidate-pool.py \
   aha-skills-finder/examples/find-skill-finder/candidate-pool.json \
-  aha-skills-finder/examples/find-skill-audit/candidate-pool.json
+  aha-skills-finder/examples/find-skill-audit/candidate-pool.json \
+  aha-skills-finder/examples/find-skill-multi-lane/candidate-pool.json
 python3 aha-skills-finder/scripts/validate-skill.py aha-skills-finder
+python3 aha-skills-finder/scripts/validate-schema-compat.py .
 npm test
 npm pack --dry-run
 ```

@@ -90,6 +90,28 @@
         "excluded_capabilities": { "type": "array", "items": { "type": "string" } }
       }
     },
+    "source_gaps": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "false_positives": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "source_url", "why_false_positive", "query_correction"],
+        "properties": {
+          "name": { "type": "string", "minLength": 1 },
+          "source_url": { "type": "string", "minLength": 1 },
+          "why_false_positive": { "type": "string", "minLength": 1 },
+          "could_be_valid_in_lanes": {
+            "type": "array",
+            "items": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$" }
+          },
+          "query_correction": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
     "rounds": {
       "type": "array",
       "minItems": 1,

@@ -17,8 +17,8 @@ entries:
     last_verified: "2026-06-10"
     claim_source: "primary_url, api_or_docs_url, and access_notes"
     status: "active"
-    search_api: none
-    search_api_note: "Browse-only; no public search API. Discovery requires manual browsing or web-search-based surface recall."
+    search_api: public_endpoint_observed
+    search_api_note: "Public endpoint observed at api_or_docs_url. Treat availability and returned fields as raw access signals only; do not infer safety, freshness, or adoption fit."
     notes_on_access: "API docs describe the surface; auth may be required, so record access failures as source gaps."
     primary_url: "https://skills.sh/official"
     api_or_docs_url: "https://www.skills.sh/docs/api"
@@ -39,8 +39,8 @@ entries:
     last_verified: "2026-06-10"
     claim_source: "primary_url, api_or_docs_url, and access_notes"
     status: "active"
-    search_api: none
-    search_api_note: "Browse-only; no public search API. Discovery requires manual browsing or web-search-based surface recall."
+    search_api: public_endpoint_observed
+    search_api_note: "Public endpoint observed at api_or_docs_url. Treat availability and returned fields as raw access signals only; do not infer safety, freshness, or adoption fit."
     notes_on_access: "Treat leaderboard and telemetry access as raw discovery signals, not adoption or safety proof."
     primary_url: "https://skills.sh/trending"
     api_or_docs_url: "https://www.skills.sh/docs/api"
@@ -106,8 +106,8 @@ entries:
     last_verified: "2026-06-10"
     claim_source: "primary_url, api_or_docs_url, and access_notes"
     status: "active"
-    search_api: none
-    search_api_note: "Browse-only; no public search API. Discovery requires manual browsing or web-search-based surface recall."
+    search_api: public_endpoint_observed
+    search_api_note: "Public endpoint observed at api_or_docs_url. Use only for source expansion and raw access metadata."
     notes_on_access: "Use plugins, publishers, and audits as source expansion only; do not treat labels as safety proof."
     primary_url: "https://clawhub.ai/skills"
     api_or_docs_url: "https://clawhub.ai/api/v1/search?q={query}&limit=10"

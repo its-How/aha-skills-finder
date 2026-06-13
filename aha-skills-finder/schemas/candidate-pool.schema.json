@@ -19,7 +19,7 @@
     "created": { "type": "string", "format": "date" },
     "target_outcome": { "type": "string", "minLength": 10 },
     "lane_id": {
-      "type": "string",
+      "type": ["string", "null"],
       "description": "Optional lane id when a mixed outcome has been split before search. One candidate pool should describe one lane.",
       "pattern": "^[a-z0-9][a-z0-9-]*$"
     },
@@ -102,6 +102,11 @@
         "properties": {
           "candidate_id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$" },
           "name": { "type": "string", "minLength": 1 },
+          "lane_id": {
+            "type": ["string", "null"],
+            "description": "Lane where this candidate belongs when the artifact uses lane decomposition. Null or absent means the artifact did not use lane decomposition.",
+            "pattern": "^[a-z0-9][a-z0-9-]*$"
+          },
           "candidate_role": {
             "enum": ["capability", "discovery-source", "adjacent-index", "adjacent-tooling", "registry-index"],
             "description": "Optional role for separating ordinary capability candidates from source, index, and adjacent tooling candidates. discovery-source, adjacent-index, adjacent-tooling, and registry-index entries are recall surfaces only and must not be treated as an adoption shortlist."

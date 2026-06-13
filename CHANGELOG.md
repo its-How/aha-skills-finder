@@ -1,5 +1,17 @@
 # Changelog
 
+## v0.1.6
+
+- Uses a clean release line because remote `v0.1.5` tag already existed before
+  this release-boundary hardening pass.
+- Reconciles skill registry source API wording so browse-only and observed
+  public endpoint surfaces are tracked per entry.
+- Adds dependency-free schema compatibility validation for bundled candidate
+  pool and research brief examples against the shipped JSON schemas.
+- Updates docs and CI smoke snippets to cover the multi-lane example.
+- Adds npm publish-time guard (`prepublishOnly`) and a fuller local
+  `release:check` script.
+
 ## v0.1.5
 
 - Makes `star_velocity` and `installs` nullable in candidate-pool schema to
