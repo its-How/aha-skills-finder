@@ -1,0 +1,261 @@
+{
+  "schema_version": "0.1",
+  "artifact_type": "research-output",
+  "created": "2026-06-13",
+  "target_outcome": "Find skill-discovery tools AND skill-audit tools",
+  "why_now": "Both discovery and audit capabilities are needed for a growing agent ecosystem, and keeping lanes separate prevents false-positive mixing.",
+  "find_stage_boundary": {
+    "does": [
+      "discovers multiple candidates across two distinct lanes",
+      "records source families and raw signals per lane",
+      "keeps discovery and audit candidates in separate pools"
+    ],
+    "does_not": [
+      "does not make adopt/use decisions",
+      "does not recommend, approve, install, enable, configure, publish, deploy, login, execute, or mutate runtime config for capabilities",
+      "does not perform source, safety, permission, maintenance, credential, browser, provider, live, or external-write audit",
+      "does not rank candidates across lanes"
+    ]
+  },
+  "source_gaps": [
+    "Install counts are uneven across registries.",
+    "Some hosted indexes expose pages but not stable APIs.",
+    "No candidate was installed or executed in this bounded run.",
+    "GitHub API does not expose true 7/30/90-day star velocity."
+  ],
+  "false_positives": [
+    {
+      "name": "GitHub prompt-library topic",
+      "source_url": "https://github.com/topics/prompt-library",
+      "lane_id": "skill-discovery",
+      "why_false_positive": "Returns prompt collections rather than traceable skill-discovery workflows.",
+      "query_correction": "Add registry, marketplace, SKILL.md, or candidate pool terms."
+    },
+    {
+      "name": "AgriciDaniel/claude-ads",
+      "source_url": "https://github.com/AgriciDaniel/claude-ads",
+      "lane_id": "skill-audit",
+      "why_false_positive": "High-star Claude skill with audit language, but it audits advertising accounts, not candidate skills.",
+      "could_be_valid_in_lanes": [
+        "domain-marketing-audit"
+      ],
+      "query_correction": "Require candidate object terms such as SKILL.md, agent skill, skill package, or quality gate."
+    }
+  ],
+  "candidates": [
+    {
+      "candidate_id": "agentspace-find-skills",
+      "name": "agentspace-so find-skills",
+      "lane_id": "skill-discovery",
+      "source": {
+        "source_family": "source-repositories",
+        "source_url": "https://github.com/agentspace-so/skills/tree/main/find-skills",
+        "repo_url": "https://github.com/agentspace-so/skills"
+      },
+      "entrypoint_url": "https://github.com/agentspace-so/skills/blob/main/find-skills/SKILL.md",
+      "candidate_type": "skill",
+      "candidate_role": "capability",
+      "candidate_surfaces": [
+        "agent-skill",
+        "skill-finder",
+        "source-repo"
+      ],
+      "target_outcome": "Find tools for discovering skills across registries",
+      "outcome_mode": "direct skill discovery workflow",
+      "query_branch": "source-code",
+      "metrics": {
+        "installs": null,
+        "stars": null,
+        "forks": null,
+        "star_velocity": null,
+        "first_seen": null,
+        "last_update": null
+      },
+      "find_signals": [
+        "has SKILL.md entrypoint",
+        "directly targets finding skills"
+      ],
+      "signal_completeness": "low",
+      "false_positive_note": null,
+      "deferred_boundary_tags": [
+        "deferred-source-boundary",
+        "deferred-safety-boundary",
+        "consumer-validation-boundary"
+      ],
+      "adjacent_candidates": [],
+      "notes": [
+        "Directly shaped as a skill.",
+        "Find-stage artifact does not prove fit for use."
+      ]
+    },
+    {
+      "candidate_id": "skills-sh-index",
+      "name": "skills.sh registry",
+      "lane_id": "skill-discovery",
+      "source": {
+        "source_family": "skill-registries-search-indexes",
+        "source_url": "https://skills.sh/",
+        "repo_url": null
+      },
+      "entrypoint_url": "https://skills.sh/",
+      "candidate_type": "registry-search-index",
+      "candidate_role": "discovery-source",
+      "candidate_surfaces": [
+        "registry-index",
+        "skill-marketplace"
+      ],
+      "target_outcome": "Find tools for discovering skills across registries",
+      "outcome_mode": "hosted skill search surface",
+      "query_branch": "registry-search-index",
+      "metrics": {
+        "installs": null,
+        "stars": null,
+        "forks": null,
+        "star_velocity": null,
+        "first_seen": null,
+        "last_update": null
+      },
+      "find_signals": [
+        "hosted search/index surface",
+        "broadens discovery beyond GitHub code search"
+      ],
+      "signal_completeness": "low",
+      "false_positive_note": null,
+      "deferred_boundary_tags": [
+        "deferred-source-boundary",
+        "source-only",
+        "consumer-validation-boundary",
+        "not-adoption-proof",
+        "no-publish",
+        "publish-boundary"
+      ],
+      "adjacent_candidates": [],
+      "notes": [
+        "Useful as discovery surface, not necessarily an installable skill.",
+        "Find-stage records it without making adoption claims."
+      ]
+    },
+    {
+      "candidate_id": "moonrunnerkc-skillcheck",
+      "name": "moonrunnerkc/skillcheck",
+      "lane_id": "skill-audit",
+      "source": {
+        "source_family": "source-repositories",
+        "source_url": "https://github.com/moonrunnerkc/skillcheck",
+        "repo_url": "https://github.com/moonrunnerkc/skillcheck"
+      },
+      "entrypoint_url": "https://github.com/moonrunnerkc/skillcheck",
+      "candidate_type": "cli",
+      "candidate_role": "capability",
+      "candidate_surfaces": [
+        "agent-skill",
+        "cli",
+        "source-repo"
+      ],
+      "target_outcome": "Find tools for auditing skill quality and safety",
+      "outcome_mode": "static SKILL.md quality/lint gate",
+      "query_branch": "skill-native",
+      "metrics": {
+        "installs": null,
+        "stars": 14,
+        "forks": 1,
+        "star_velocity": null,
+        "recent_growth_proxy": {
+          "basis": [
+            "created 2026-03-11",
+            "pushed 2026-06-08",
+            "14 stars",
+            "1 fork"
+          ],
+          "summary": "Exact outcome match with recent push, but weak distribution signal."
+        },
+        "first_seen": "2026-03-11",
+        "last_update": "2026-06-08"
+      },
+      "find_signals": [
+        "Description explicitly targets SKILL.md quality gates.",
+        "Mentions Claude Code, VS Code/Copilot, Codex, and Cursor compatibility.",
+        "Includes progressive disclosure and token-budget language aligned with skill-audit concerns."
+      ],
+      "signal_completeness": "medium",
+      "false_positive_note": null,
+      "deferred_boundary_tags": [
+        "source-review-needed",
+        "install-boundary",
+        "cli-execution-boundary",
+        "quality-coverage-validation-needed"
+      ],
+      "adjacent_candidates": [],
+      "claims": {
+        "cross_agent_compatibility": "Claude Code, VS Code/Copilot, Codex, Cursor",
+        "quality_gate_features": "frontmatter validation, discoverability checks, file reference validation, token budget checks"
+      },
+      "claims_source": "https://github.com/moonrunnerkc/skillcheck",
+      "verified": {
+        "cross_agent_compatibility": "claimed in README, not independently verified",
+        "quality_gate_features": "claimed in README, not independently verified"
+      },
+      "verified_method": "docs_only",
+      "notes": [
+        "Exact GitHub hit in this bounded run.",
+        "Find-stage records the candidate and raw review-surface signals only."
+      ]
+    },
+    {
+      "candidate_id": "nvidia-skillspector",
+      "name": "NVIDIA/SkillSpector",
+      "lane_id": "skill-audit",
+      "source": {
+        "source_family": "source-repositories",
+        "source_url": "https://github.com/NVIDIA/SkillSpector",
+        "repo_url": "https://github.com/NVIDIA/SkillSpector"
+      },
+      "entrypoint_url": "https://github.com/NVIDIA/SkillSpector",
+      "candidate_type": "repo-tool",
+      "candidate_role": "capability",
+      "candidate_surfaces": [
+        "cli",
+        "source-repo"
+      ],
+      "target_outcome": "Find tools for auditing skill quality and safety",
+      "outcome_mode": "AI agent skill security scanner",
+      "query_branch": "source-code",
+      "metrics": {
+        "installs": null,
+        "stars": 1904,
+        "forks": 160,
+        "star_velocity": null,
+        "recent_growth_proxy": {
+          "basis": [
+            "created 2026-03-21",
+            "pushed 2026-06-10",
+            "1904 stars",
+            "160 forks",
+            "NVIDIA org"
+          ],
+          "summary": "Large high-growth-looking security scanner signal with direct AI agent skill object."
+        },
+        "first_seen": "2026-03-21",
+        "last_update": "2026-06-10"
+      },
+      "find_signals": [
+        "Directly targets AI agent skills.",
+        "High stars/forks relative to exact quality tools.",
+        "Recent push on search date."
+      ],
+      "signal_completeness": "medium",
+      "false_positive_note": "Adjacent: security scanner, not quality/effectiveness evaluator.",
+      "deferred_boundary_tags": [
+        "security-scan-lane",
+        "source-review-needed",
+        "install-boundary",
+        "license-review-needed"
+      ],
+      "adjacent_candidates": [],
+      "notes": [
+        "Recorded as an adjacent risk-surface candidate for later boundary review.",
+        "Not treated as a replacement for exact skill-quality review candidates."
+      ]
+    }
+  ]
+}
