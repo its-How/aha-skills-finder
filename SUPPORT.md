@@ -19,8 +19,9 @@ Not supported by this package:
 - adoption recommendations or final ranking;
 - source, safety, permission, maintenance, provider, browser, credential, login,
   live, or external-write audit;
-- install managers, plugin packaging, MCP servers, marketplace submission, npm
-  publication, runtime config mutation, or provider configuration;
+- install managers, plugin packaging, MCP servers, marketplace submission,
+  runtime config mutation, or provider configuration;
+- npm package usage as a CLI or JavaScript import API;
 - guarantees that a discovered candidate is safe, current, high quality, or fit
   for adoption.
 
@@ -42,5 +43,5 @@ private account data, private customer/supplier data, or live/provider
 materials in issues.
 
 Requests for runtime adapters, registry submission, marketplace listing,
-plugin/MCP packaging, npm publication, or live/provider behavior need a separate
-design and approval gate before implementation.
+plugin/MCP packaging, new npm publication, or live/provider behavior need a
+separate design and approval gate before implementation.

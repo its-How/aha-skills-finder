@@ -1,6 +1,7 @@
 # Install
 
-`aha-skills-finder` is distributed as a portable skill directory:
+`aha-skills-finder` is distributed as a portable skill directory plus a thin npm
+package shape for file distribution and deterministic validation:
 
 ```text
 aha-skills-finder/
@@ -8,6 +9,10 @@ aha-skills-finder/
 
 The core contract is `aha-skills-finder/SKILL.md`. Runtime-specific adapters are
 not required for local use and are not currently claimed as validated.
+
+The npm package has no `bin`, `main`, or `exports` entry. It is not a CLI and
+not a JavaScript import API. Treat npm registry state as proven only by an npm
+registry receipt.
 
 ## From GitHub
 
@@ -47,6 +52,24 @@ This copies the portable skill contract only. It does not install a plugin, add
 an MCP server, mutate provider config, or prove that any candidate should be
 adopted.
 
+## From npm Package Files
+
+If a version is published to npm, install it as file distribution only:
+
+```bash
+npm install aha-skills-finder
+```
+
+Then copy the packaged skill directory from `node_modules` into your runtime's
+skill directory:
+
+```bash
+cp -R node_modules/aha-skills-finder/aha-skills-finder /path/to/your/skills/
+```
+
+This npm route does not provide a command, import API, runtime adapter,
+marketplace listing, or adoption recommendation.
+
 ## Use Without Installing
 
 You can evaluate the package without copying it into a runtime:
@@ -56,6 +79,8 @@ python3 aha-skills-finder/scripts/validate-candidate-pool.py \
   aha-skills-finder/examples/find-skill-finder/candidate-pool.json \
   aha-skills-finder/examples/find-skill-audit/candidate-pool.json
 python3 aha-skills-finder/scripts/validate-skill.py aha-skills-finder
+npm test
+npm pack --dry-run
 ```
 
 Then point an agent at `aha-skills-finder/SKILL.md` and the examples in
@@ -63,6 +88,5 @@ Then point an agent at `aha-skills-finder/SKILL.md` and the examples in
 
 ## Not Included
 
-This package does not include npm publication, a marketplace listing, a Codex
-plugin manifest, a validated runtime adapter, or any live/provider/browser/
-credential action.
+This package does not include a marketplace listing, a Codex plugin manifest, a
+validated runtime adapter, or any live/provider/browser/credential action.

@@ -1,6 +1,6 @@
 # Open Source Audit
 
-Status: split-ready local audit.
+Status: npm-ready local audit.
 
 ## Scope
 
@@ -17,6 +17,7 @@ aha-skills-finder/
   README.md
   LICENSE
   OPEN_SOURCE_AUDIT.md
+  package.json
   aha-skills-finder/
     SKILL.md
     adapters/
@@ -30,8 +31,12 @@ aha-skills-finder/
 ## Intended Public Contract
 
 - Runtime-agnostic agent skill package.
+- Thin npm package shape for skill-file distribution and deterministic
+  validation assets only.
 - Find-stage only: discover multiple traceable skill/capability candidates and raw signals.
-- No adoption recommendation, ranking, safety/source audit, install/enable/configure, browser/provider/credential/live action, publish, deploy, or external write.
+- No adoption recommendation, ranking, safety/source audit, install/enable/configure, browser/provider/credential/live action, deploy, or external write.
+- No CLI, JavaScript import API, runtime adapter claim, marketplace acceptance
+  claim, or candidate adoption claim.
 
 ## Required Checks
 
@@ -41,6 +46,7 @@ aha-skills-finder/
 - No claims that discovery signals prove quality, safety, maintenance, or adoption readiness.
 - Candidate pool validator passes on canonical examples.
 - `SKILL.md` frontmatter validates.
+- npm package dry-run contains only intended public files.
 
 ## Cannot Prove
 
@@ -48,4 +54,5 @@ aha-skills-finder/
 - Adoption fit.
 - Registry/package freshness after publication.
 - Runtime adapter support.
-- GitHub repository creation, transfer, push, package publish, or external release success.
+- npm registry publication, GitHub release publication, marketplace acceptance,
+  or external distribution success.

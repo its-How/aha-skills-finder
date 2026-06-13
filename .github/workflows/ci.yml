@@ -20,6 +20,11 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
       - name: Validate candidate pools
         run: |
           python3 aha-skills-finder/scripts/validate-candidate-pool.py \
@@ -33,3 +38,9 @@ jobs:
         run: |
           python3 -m json.tool aha-skills-finder/examples/find-skill-finder/research-brief.json >/dev/null
           python3 -m json.tool aha-skills-finder/examples/find-skill-audit/research-brief.json >/dev/null
+
+      - name: npm test
+        run: npm test
+
+      - name: Package dry run
+        run: npm pack --dry-run

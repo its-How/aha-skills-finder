@@ -8,7 +8,7 @@ This repository is written for agents and automated consumers, not for tutorials
 
 ## Start Here
 
-- [Install](INSTALL.md): copy the `aha-skills-finder/` skill directory into a runtime-managed skill location.
+- [Install](INSTALL.md): copy the `aha-skills-finder/` skill directory or use the npm package shape.
 - [Use](USAGE.md): run the bundled offline examples and ask an agent to produce find-stage artifacts.
 - [Release checklist](RELEASE_CHECKLIST.md): verify the portable skill inventory and evidence boundaries.
 - [Contribute](CONTRIBUTING.md): keep changes inside the find-stage boundary.
@@ -27,6 +27,11 @@ This repository is written for agents and automated consumers, not for tutorials
 | `aha-skills-finder/examples/` | Canonical find-stage artifacts |
 | `aha-skills-finder/adapters/` | Optional runtime metadata policy; no validated adapter claim |
 
+The npm package shape has no `bin`, `main`, or `exports` entry. If a version is
+published to npm, it distributes the skill directory and validation files only;
+it does not provide a command-line tool or JavaScript import API. Treat npm
+registry state as proven only by an npm registry receipt.
+
 ## What It Does
 
 `aha-skills-finder` helps an agent produce an aha-shaped discovery artifact:
@@ -44,12 +49,14 @@ It does not recommend adoption, rank winners, audit safety/source quality, insta
 Run from the repository root:
 
 ```bash
-python3 aha-skills-finder/scripts/validate-candidate-pool.py aha-skills-finder/examples/find-skill-finder/candidate-pool.json
-python3 aha-skills-finder/scripts/validate-candidate-pool.py aha-skills-finder/examples/find-skill-audit/candidate-pool.json
-python3 aha-skills-finder/scripts/validate-skill.py aha-skills-finder
+npm test
+npm run check
+npm pack --dry-run
 ```
 
-`validate-skill.py` checks the portable `SKILL.md` frontmatter contract. Runtime-specific validators may add stricter checks.
+These commands run the portable candidate-pool, research-brief JSON,
+`SKILL.md` frontmatter, and package dry-run checks. Runtime-specific validators
+may add stricter checks.
 
 For a first local smoke without installing the skill, see [USAGE.md](USAGE.md).
 

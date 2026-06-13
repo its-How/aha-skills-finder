@@ -18,6 +18,7 @@ The package must include:
   `CONTRIBUTING.md`, `CHANGELOG.md`, `OPEN_SOURCE_AUDIT.md`,
   `RELEASE_CHECKLIST.md`, `SUPPORT.md`
 - root license: `LICENSE`
+- `package.json`
 
 ## Boundary Checks
 
@@ -29,3 +30,8 @@ The package must include:
   freshness.
 - Local validators prove structure only, not runtime loading, source quality,
   candidate safety, registry freshness, or adoption fit.
+- `npm pack --dry-run` proves package contents only. It does not prove npm
+  registry publication, marketplace acceptance, runtime loading, source quality,
+  candidate safety, or adoption fit.
+- The npm shape has no `bin`, `main`, or `exports`; do not describe it as a CLI
+  or JavaScript import API.

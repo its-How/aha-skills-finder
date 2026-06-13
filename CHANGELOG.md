@@ -1,5 +1,16 @@
 # Changelog
 
+## v0.1.4
+
+- Adds thin npm package metadata for distributing the portable skill directory
+  and validation assets.
+- Adds npm scripts for deterministic candidate-pool, research-brief JSON, and
+  `SKILL.md` frontmatter validation.
+- Documents npm as file distribution only: no CLI, no JavaScript import API, no
+  runtime adapter claim, no marketplace acceptance claim, and no
+  live/provider/browser/credential behavior.
+- Adds CI package dry-run coverage.
+
 ## v0.1.3
 
 - Adds GitHub Actions CI for deterministic candidate-pool, skill frontmatter,
