@@ -1,5 +1,7 @@
 # Aha Skills Finder
 
+[![CI](https://github.com/its-How/aha-skills-finder/actions/workflows/ci.yml/badge.svg)](https://github.com/its-How/aha-skills-finder/actions/workflows/ci.yml)
+
 Runtime-agnostic agent skill for finding skill and capability candidates that first-pass registry, package, or search queries would likely miss.
 
 This repository is written for agents and automated consumers, not for tutorials, marketing, manual operation, or one specific AI runtime.
