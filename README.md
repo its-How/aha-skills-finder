@@ -4,6 +4,13 @@ Runtime-agnostic agent skill for finding skill and capability candidates that fi
 
 This repository is written for agents and automated consumers, not for tutorials, marketing, manual operation, or one specific AI runtime.
 
+## Start Here
+
+- [Install](INSTALL.md): copy the `aha-skills-finder/` skill directory into a runtime-managed skill location.
+- [Use](USAGE.md): run the bundled offline examples and ask an agent to produce find-stage artifacts.
+- [Contribute](CONTRIBUTING.md): keep changes inside the find-stage boundary.
+- [Security](SECURITY.md): report package issues without adding credential, browser, provider, or live behavior.
+
 ## Package
 
 | Path | Purpose |
@@ -39,6 +46,8 @@ python3 aha-skills-finder/scripts/validate-skill.py aha-skills-finder
 ```
 
 `validate-skill.py` checks the portable `SKILL.md` frontmatter contract. Runtime-specific validators may add stricter checks.
+
+For a first local smoke without installing the skill, see [USAGE.md](USAGE.md).
 
 ## Repository Boundary
 
