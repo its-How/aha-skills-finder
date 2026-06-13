@@ -178,6 +178,14 @@ after package search found a candidate, repository URL returned 404, code search
 was unauthenticated or rate-limited, or a marketplace page was readable but no
 public API was visible.
 
+The cross-map output lives in the candidate pool as:
+1. `source.repo_url` — canonical source repository.
+2. `source.registry_id` — registry/package identifier if different from name.
+3. `entrypoint_url` — the actual URL an agent would use to access the capability.
+4. `notes` — any cross-map discrepancies (e.g., "npm package name differs from repo name").
+
+If a candidate appears under multiple identities, create one candidate with all cross-map fields populated, not duplicate candidates.
+
 ### R2: Query Expansion, Branching, and Correction
 
 Challenge R1 instead of deep-auditing favorites. Do not assume the user's first
@@ -232,6 +240,16 @@ as created date, current stars, forks, pushed/updated time, release cadence, or
 package download cadence. This remains a raw discovery signal, not a quality or
 maintenance verdict.
 
+### Handling R2-Discovered Candidates That Should Have Been in R1
+
+When R2 query expansion surfaces candidates that clearly match the original R1 target outcome but were missed:
+1. Add them to the candidate pool normally.
+2. Set `query_branch` to the R2 branch that found them.
+3. Add a `notes` entry: "R2-discovered; missed in R1 due to [reason: narrow query / missing source family / registry gap]."
+4. Record the gap in `source_gaps` as: `{ gap_type: "r1_miss", source_family: "...", reason: "..." }`.
+
+Do NOT retroactively modify R1 results.
+
 ### R3: Candidate Pool
 
 Convert recall into a candidate pool artifact using `schemas/candidate-pool.schema.json`.
@@ -261,6 +279,26 @@ Useful surface tags include `agent-skill`, `mcp-server`, `cli`, `package`,
 `skill-retrieval`, `skill-distillation`, `docs`, and `prompt`. Surface tags are
 descriptive only; they are not rankings.
 
+## Stopping Conditions
+
+Stop discovery only when all applicable handoff conditions are explicit, or when
+the runtime budget or a hard limit prevents further discovery:
+
+1. Planned rounds are complete or the explicit budget is exhausted.
+2. Outcome-bound source coverage is explicit.
+3. Important source gaps are recorded.
+4. Major query expansion branches have been tried or deferred.
+5. False positives have been converted into query corrections where useful.
+6. Candidate identities are cross-mapped where available.
+7. Candidate type, role, and surfaces are clear enough for handoff.
+
+Do not stop merely because one plausible candidate appears, because one source
+family produces enough candidates, or because the last query branch produced few
+new candidates. When stopping before all planned rounds complete, record the stop
+reason in the research brief `rounds[last].stop_reason` and mark remaining
+rounds as `skipped` with `reason: "budget_exhausted"` or the specific runtime
+limit that was hit.
+
 ## Outputs
 
 Return or write:
@@ -283,15 +321,16 @@ Run a light red-line check for candidate pools with:
 ```bash
 python3 aha-skills-finder/scripts/validate-candidate-pool.py \
   aha-skills-finder/examples/find-skill-finder/candidate-pool.json \
-  aha-skills-finder/examples/find-skill-audit/candidate-pool.json
+  aha-skills-finder/examples/find-skill-audit/candidate-pool.json \
+  aha-skills-finder/examples/find-skill-multi-lane/candidate-pool.json
 ```
 
 `validate-candidate-pool.py` is a red-line validator, not a full JSON Schema
 validator; schema compatibility needs a separate JSON Schema validator check.
 It does not judge discovery quality.
 
-Canonical examples are limited to `examples/find-skill-finder/` and
-`examples/find-skill-audit/`.
+Canonical examples are limited to `examples/find-skill-finder/`,
+`examples/find-skill-audit/`, and `examples/find-skill-multi-lane/`.
 
 Use `sources.yaml` as a source-family prompt and checklist, not a mandatory taxonomy. Use `scripts/collect-github-metrics.py` only for light raw GitHub signals; it is not a quality or adoption scorer.
 

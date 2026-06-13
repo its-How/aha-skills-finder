@@ -3,6 +3,15 @@ purpose: "Source-family checklist for find-stage skill and capability discovery.
 source_families:
   - id: "skill-registries-search-indexes"
     label: "Skill registries and search indexes"
+    search_api: none
+    search_api_note: "Browse-only; no public search API. Discovery requires manual browsing or web-search-based surface recall."
+    entries:
+      - name: "skills.sh"
+        search_api: none
+        search_api_note: "Browse-only; no public search API. Discovery requires manual browsing or web-search-based surface recall."
+      - name: "ClawHub / OpenClaw"
+        search_api: none
+        search_api_note: "Browse-only; no public search API. Discovery requires manual browsing or web-search-based surface recall."
     examples:
       - "skills.sh"
       - "ClawHub / OpenClaw"

@@ -17,6 +17,8 @@ entries:
     last_verified: "2026-06-10"
     claim_source: "primary_url, api_or_docs_url, and access_notes"
     status: "active"
+    search_api: none
+    search_api_note: "Browse-only; no public search API. Discovery requires manual browsing or web-search-based surface recall."
     notes_on_access: "API docs describe the surface; auth may be required, so record access failures as source gaps."
     primary_url: "https://skills.sh/official"
     api_or_docs_url: "https://www.skills.sh/docs/api"
@@ -37,6 +39,8 @@ entries:
     last_verified: "2026-06-10"
     claim_source: "primary_url, api_or_docs_url, and access_notes"
     status: "active"
+    search_api: none
+    search_api_note: "Browse-only; no public search API. Discovery requires manual browsing or web-search-based surface recall."
     notes_on_access: "Treat leaderboard and telemetry access as raw discovery signals, not adoption or safety proof."
     primary_url: "https://skills.sh/trending"
     api_or_docs_url: "https://www.skills.sh/docs/api"
@@ -57,6 +61,8 @@ entries:
     last_verified: "2026-06-10"
     claim_source: "primary_url, api_or_docs_url, and access_notes"
     status: "active"
+    search_api: none
+    search_api_note: "Browse-only; no public search API. Discovery requires manual browsing or web-search-based surface recall."
     notes_on_access: "Topics and audit surfaces are source metadata; audit labels remain later-gate raw signals."
     primary_url: "https://skills.sh/topics"
     api_or_docs_url: "https://www.skills.sh/docs/api"
@@ -77,6 +83,8 @@ entries:
     last_verified: "2026-06-10"
     claim_source: "primary_url, api_or_docs_url, and access_notes"
     status: "active"
+    search_api: none
+    search_api_note: "Browse-only; no public search API. Discovery requires manual browsing or web-search-based surface recall."
     notes_on_access: "Public page and search endpoint may expose registry-native entries; labels are raw discovery signals."
     primary_url: "https://clawhub.ai/skills"
     api_or_docs_url: "https://clawhub.ai/api/v1/search?q={query}&limit=10"
@@ -98,6 +106,8 @@ entries:
     last_verified: "2026-06-10"
     claim_source: "primary_url, api_or_docs_url, and access_notes"
     status: "active"
+    search_api: none
+    search_api_note: "Browse-only; no public search API. Discovery requires manual browsing or web-search-based surface recall."
     notes_on_access: "Use plugins, publishers, and audits as source expansion only; do not treat labels as safety proof."
     primary_url: "https://clawhub.ai/skills"
     api_or_docs_url: "https://clawhub.ai/api/v1/search?q={query}&limit=10"
