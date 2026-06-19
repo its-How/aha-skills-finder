@@ -4,6 +4,7 @@
 
 - Uses a clean release line because npm `0.1.6` was published before the final
   ClawHub source-registry API wording correction.
+- LICENSE: Updated copyright holder from "its-How contributors" to "How" for consistency across HowLab open-source skills.
 - Keeps the `0.1.6` schema compatibility, publish guard, and multi-lane smoke
   hardening unchanged.
 
