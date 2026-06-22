@@ -333,3 +333,13 @@ Canonical examples are limited to `examples/find-skill-finder/`,
 `examples/find-skill-audit/`, and `examples/find-skill-multi-lane/`.
 
 Use `sources.yaml` as a source-family prompt and checklist, not a mandatory taxonomy. Use `scripts/collect-github-metrics.py` only for light raw GitHub signals; it is not a quality or adoption scorer.
+
+## Cannot Prove
+
+A find-stage artifact cannot prove:
+
+- a candidate is safe;
+- a candidate is maintained well enough to adopt;
+- a candidate should be installed or enabled;
+- a candidate improves the consumer outcome;
+- source, provider, browser, credential, or live readiness.

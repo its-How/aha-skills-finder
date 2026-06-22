@@ -7,8 +7,7 @@
   the public package (planning notes, audit workflows — not part of the skill
   content surface).
 - Updates `README.md` and `package.json` to remove references to deleted files.
-- Aligns terminology: "boundary" → "scope" across docs for consistency with
-  skill-dev-baseline.md.
+- Aligns terminology across docs.
 
 ## v0.1.7
 
@@ -21,7 +20,7 @@
 ## v0.1.6
 
 - Uses a clean release line because remote `v0.1.5` tag already existed before
-  this release-line hardening pass.
+  this release-boundary hardening pass.
 - Reconciles skill registry source API wording so browse-only and observed
   public endpoint surfaces are tracked per entry.
 - Adds dependency-free schema compatibility validation for bundled candidate
