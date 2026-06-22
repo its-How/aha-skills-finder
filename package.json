@@ -18,9 +18,6 @@
     "CONTRIBUTING.md",
     "SECURITY.md",
     "CHANGELOG.md",
-    "OPEN_SOURCE_AUDIT.md",
-    "RELEASE_CHECKLIST.md",
-    "SUPPORT.md",
     "LICENSE"
   ],
   "scripts": {

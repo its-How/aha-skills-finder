@@ -14,7 +14,7 @@ assignees: ""
 
 ## Actual Result
 
-## Boundary Check
+## Scope Check
 
 - [ ] This report does not include credentials, tokens, cookies, browser profiles, session material, private account data, or private customer/supplier data.
 - [ ] This report does not ask the package to install, enable, configure, publish, deploy, mutate runtime config, or perform browser/provider/live/external-write actions.

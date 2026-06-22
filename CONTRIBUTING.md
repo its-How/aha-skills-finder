@@ -26,5 +26,5 @@ Do not add:
 - claims that raw metrics, stars, downloads, or validators prove quality,
   safety, maintenance, or adoption readiness.
 
-Changes to schemas or examples should preserve the evidence separation between
+Changes to schemas or examples should preserve the evidence distinction between
 raw discovery signals and later audit/adoption gates.

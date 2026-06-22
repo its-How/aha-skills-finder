@@ -12,7 +12,7 @@ assignees: ""
 
 ## Evidence Surface
 
-## Boundary Check
+## Scope Check
 
 - [ ] This is a discovery source or raw-signal source, not an adoption recommendation.
 - [ ] This does not require credentials, paid provider access, browser/session access, or live/external-write behavior.

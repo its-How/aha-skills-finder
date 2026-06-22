@@ -23,10 +23,7 @@ REQUIRED_PATHS = [
     "USAGE.md",
     "CONTRIBUTING.md",
     "SECURITY.md",
-    "SUPPORT.md",
     "CHANGELOG.md",
-    "OPEN_SOURCE_AUDIT.md",
-    "RELEASE_CHECKLIST.md",
     "LICENSE",
     "package.json",
 ]
@@ -39,9 +36,6 @@ REQUIRED_FILE_ENTRIES = [
     "CONTRIBUTING.md",
     "SECURITY.md",
     "CHANGELOG.md",
-    "OPEN_SOURCE_AUDIT.md",
-    "RELEASE_CHECKLIST.md",
-    "SUPPORT.md",
     "LICENSE",
 ]
 

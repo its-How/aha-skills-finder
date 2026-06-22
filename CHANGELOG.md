@@ -1,5 +1,15 @@
 # Changelog
 
+## Unreleased
+
+- Removes empty placeholder directories `adapters/` and `agents/` (speculative code).
+- Removes `RELEASE_CHECKLIST.md`, `SUPPORT.md`, and `OPEN_SOURCE_AUDIT.md` from
+  the public package (planning notes, audit workflows — not part of the skill
+  content surface).
+- Updates `README.md` and `package.json` to remove references to deleted files.
+- Aligns terminology: "boundary" → "scope" across docs for consistency with
+  skill-dev-baseline.md.
+
 ## v0.1.7
 
 - Uses a clean release line because npm `0.1.6` was published before the final
@@ -11,7 +21,7 @@
 ## v0.1.6
 
 - Uses a clean release line because remote `v0.1.5` tag already existed before
-  this release-boundary hardening pass.
+  this release-line hardening pass.
 - Reconciles skill registry source API wording so browse-only and observed
   public endpoint surfaces are tracked per entry.
 - Adds dependency-free schema compatibility validation for bundled candidate
@@ -54,7 +64,7 @@
 - Adds GitHub Actions CI for deterministic candidate-pool, skill frontmatter,
   and research-brief validation.
 - Adds GitHub issue templates for deterministic bugs and candidate source
-  suggestions, with boundary checks against credential, browser, provider, live,
+  suggestions, with scope checks against credential, browser, provider, live,
   and external-write material.
 - Adds README CI badge backed by the new workflow.
 - Adds `SUPPORT.md` with maintained scope, version policy, issue policy, and
@@ -74,7 +84,7 @@
 ## v0.1.1
 
 - GitHub release existed before this local hardening pass.
-- This changelog entry records the observed release-line boundary only; it does
+- This changelog entry records the observed release-line scope only; it does
   not claim runtime, marketplace, package-registry, or consumer adoption.
 - Post-release local docs/checklist changes are tracked as `v0.1.2` to avoid
   drifting content back onto an already-created GitHub release.

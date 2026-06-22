@@ -13,7 +13,7 @@ corrections, and raw signals. Not one best answer.
 
 This is runtime-agnostic. Treat this `SKILL.md` as a portable agent-readable method contract, not as a Codex-only package or an install recipe. Runtime-specific metadata belongs in `adapters/` only after evidence-gated validation.
 
-This is not a tutorial or marketing surface. Optimize for agent execution, machine-readable artifacts, and compact boundary checks. Do not add quickstarts, screenshots, or docs-site prose unless they directly improve agent execution.
+This is not a tutorial or marketing surface. Optimize for agent execution, machine-readable artifacts, and compact scope checks. Do not add quickstarts, screenshots, or docs-site prose unless they directly improve agent execution.
 
 There is no universal best skill. Aha names the discovery moment when an agent
 identifies the skill or capability that matches the target need. Expanded source
@@ -36,7 +36,7 @@ find/adopt actions, or turn package/list metadata into recommendation language.
 This method fills the gap by producing cross-surface, lane-scoped, raw-signal
 candidate pools for later stages to audit or adopt separately.
 
-## Hard Boundary
+## Find-Stage Scope
 
 This is find-stage only.
 
@@ -306,7 +306,7 @@ Return or write:
 - research brief matching `schemas/research-brief.schema.json`;
 - candidate pool matching `schemas/candidate-pool.schema.json`;
 - source gaps and false positives;
-- deferred boundary tags for later adoption-stage gates.
+- deferred scope tags for later adoption-stage gates.
 
 Preserve evidence surface per signal in machine-readable fields. Prefer the
 existing `metrics.download_signals`, `registry_stats`,
@@ -333,13 +333,3 @@ Canonical examples are limited to `examples/find-skill-finder/`,
 `examples/find-skill-audit/`, and `examples/find-skill-multi-lane/`.
 
 Use `sources.yaml` as a source-family prompt and checklist, not a mandatory taxonomy. Use `scripts/collect-github-metrics.py` only for light raw GitHub signals; it is not a quality or adoption scorer.
-
-## Cannot Prove
-
-A find-stage artifact cannot prove:
-
-- a candidate is safe;
-- a candidate is maintained well enough to adopt;
-- a candidate should be installed or enabled;
-- a candidate improves the consumer outcome;
-- source, provider, browser, credential, or live readiness.

@@ -6,7 +6,7 @@ opening a minimal public issue that avoids secrets and private account details.
 Do not include credentials, tokens, cookies, browser profiles, session material,
 private supplier/customer data, or provider account data in reports.
 
-## Security Boundary
+## Security Scope
 
 `aha-skills-finder` is a find-stage skill package. It should not:
 
@@ -16,5 +16,5 @@ private supplier/customer data, or provider account data in reports.
 - claim that candidate discovery proves safety, quality, maintenance, or
   adoption readiness.
 
-Validators in this repository check local structure and boundary hygiene only.
+Validators in this repository check local structure and scope hygiene only.
 They do not prove that any discovered candidate is safe to install or adopt.
