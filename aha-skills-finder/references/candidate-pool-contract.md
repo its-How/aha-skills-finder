@@ -14,8 +14,8 @@ Every candidate pool must include `schema_version`, `created`, `target_outcome`,
 |---|---|---:|---|---|
 | `schema_version` | string | Yes | Constant `0.1` | Contract version. |
 | `artifact_type` | string | No | `research-output`, `synthetic-fixture` | Artifact classification. |
-| `created` | string | Yes | Date string | Artifact creation date. |
-| `target_outcome` | string | Yes | Non-empty outcome statement | Outcome the candidate pool is searching for. |
+| `created` | string | Yes | Date string (RFC 3339 full-date) | Artifact creation date. |
+| `target_outcome` | string | Yes | Non-empty outcome statement (minimum 10 characters) | Outcome the candidate pool is searching for. |
 | `lane_id` | string or null | No | Pattern `^[a-z0-9][a-z0-9-]*$` | Optional lane id when a mixed outcome has been split before search. One candidate pool should describe one lane. |
 | `lane_description` | string | No | Non-empty string | Optional lane-specific scope note, including adjacent lanes that are out of scope for this pool. |
 | `why_now` | string | No | Non-empty string | Why this search is needed now. |
@@ -60,7 +60,7 @@ Do not add fields unless the skill explicitly asks for them, except for `claims`
 | `entrypoint_url` | string | Yes | Non-empty string | Primary entrypoint for inspecting or using the candidate. |
 | `candidate_type` | string | Yes | `skill`, `scripted-skill`, `prompt-only`, `docs-only`, `mcp`, `cli`, `plugin`, `registry-search-index`, `curated-list`, `extension`, `saas-provider`, `repo-tool`, `native-framework-capability` | Candidate type. |
 | `candidate_surfaces` | array of strings | No | Items: `agent-skill`, `mcp-server`, `cli`, `package`, `web-editor`, `desktop-app`, `browser-extension`, `hosted-saas`, `official-api`, `native-runtime`, `source-repo`, `registry-index`, `curated-list`, `skill-library`, `skill-finder`, `skill-router`, `skill-manager`, `skill-installer`, `skill-marketplace`, `mcp-loader`, `skill-retrieval`, `skill-distillation`, `docs`, `prompt` | Optional finer surface tags for handoff typing. Tags are descriptive raw signals, not rankings. |
-| `target_outcome` | string | Yes | Non-empty outcome statement | Outcome this candidate may serve. |
+| `target_outcome` | string | Yes | Non-empty outcome statement (minimum 10 characters) | Outcome this candidate may serve. |
 | `outcome_mode` | string | Yes | Non-empty string | Mode by which the candidate may serve the outcome. |
 | `query_branch` | string | Yes | `skill-native`, `runtime-spec`, `source-code`, `package-cli`, `registry-search-index`, `outcome-native`, `extension-saas`, `mcp-agent-tool-catalog`, `false-positive-mining`, `curated-community`, `curated-recommended`, `package-registry`, `skill-tooling` | Search branch that produced or justified this candidate. |
 | `metrics` | object | Yes | Contains required `installs`, `stars`, `forks`, `star_velocity`, `first_seen`, and `last_update` | Raw popularity, freshness, and availability signals. Do not add fields unless the skill explicitly asks for them. |

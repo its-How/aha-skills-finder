@@ -13,8 +13,8 @@ Every research brief must include `schema_version`, `created`, `target_outcome`,
 | Name | Type | Required | Allowed values or constraints | Description |
 |---|---|---:|---|---|
 | `schema_version` | string | Yes | Constant `0.1` | Contract version. |
-| `created` | string | Yes | Date string | Artifact creation date. |
-| `target_outcome` | string | Yes | Non-empty outcome statement | Outcome the research brief is preparing to search for. |
+| `created` | string | Yes | Date string (RFC 3339 full-date) | Artifact creation date. |
+| `target_outcome` | string | Yes | Non-empty outcome statement (minimum 10 characters) | Outcome the research brief is preparing to search for. |
 | `lanes` | array of objects | No | At least one item when present | Optional lane-first decomposition for mixed outcomes. Use when one request contains distinct action modes that should not share one candidate pool. |
 | `why_now` | string | No | Non-empty string | Why this search is needed now. |
 | `day1_answer` | object | Yes | Contains required `expected_source`, `because`, `actual_outcome`, and `out_of_scope` | Initial answer and scope framing before deeper search. Do not add fields unless the skill explicitly asks for them. |
@@ -30,7 +30,7 @@ Use `lanes` for lane-first decomposition when a mixed outcome contains distinct 
 | Name | Type | Required | Allowed values or constraints | Description |
 |---|---|---:|---|---|
 | `lane_id` | string | Yes | Pattern `^[a-z0-9][a-z0-9-]*$` | Stable lane identifier. |
-| `target_outcome` | string | Yes | Non-empty outcome statement | Lane-specific target outcome. |
+| `target_outcome` | string | Yes | Non-empty outcome statement (minimum 10 characters) | Lane-specific target outcome. |
 | `out_of_scope` | array of strings | Yes | At least one non-empty string | Outcomes or action modes outside this lane. |
 | `priority_source_families` | array of strings | Yes | At least one non-empty string | Outcome-bound source families for this lane ecosystem, not a universal mandatory checklist. |
 | `known_false_positives` | array of strings | Yes | Non-empty strings | Lane-relative false positives that may still be valid in another lane. |
@@ -43,7 +43,7 @@ Do not add fields unless the skill explicitly asks for them.
 |---|---|---:|---|---|
 | `expected_source` | string | Yes | Non-empty string | Expected source or source family before deeper search. |
 | `because` | string | Yes | Non-empty string | Reason for the Day 1 answer. |
-| `actual_outcome` | string | Yes | Non-empty outcome statement | Actual outcome to search for after Day 1 framing. |
+| `actual_outcome` | string | Yes | Non-empty outcome statement (minimum 10 characters) | Actual outcome to search for after Day 1 framing. |
 | `timing_hypothesis` | string | No | Non-empty string | Optional timing hypothesis for why the capability may exist or be emerging now. |
 | `out_of_scope` | array of strings | Yes | May be empty | What the research brief will not search for. |
 
