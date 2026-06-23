@@ -252,7 +252,7 @@ Do NOT retroactively modify R1 results.
 
 ### R3: Candidate Pool
 
-Convert recall into a candidate pool artifact using `schemas/candidate-pool.schema.json`.
+Convert recall into a candidate pool artifact using `references/candidate-pool-contract.md`.
 
 Keep candidates that have traceable source and plausible outcome proximity. Hold selected partial hits if they improve discovery coverage. Drop unrelated or untraceable noise.
 
@@ -303,8 +303,8 @@ limit that was hit.
 
 Return or write:
 
-- research brief matching `schemas/research-brief.schema.json`;
-- candidate pool matching `schemas/candidate-pool.schema.json`;
+- research brief matching `references/research-brief-contract.md`;
+- candidate pool matching `references/candidate-pool-contract.md`;
 - source gaps and false positives;
 - deferred scope tags for later adoption-stage gates.
 
@@ -316,23 +316,7 @@ schema for every run. When a candidate has mixed evidence, keep each signal tied
 to its surface, name, value, source URL, and window or timestamp where available.
 Do not collapse registry, package, repo, and store signals into a single score.
 
-Run a light red-line check for candidate pools with:
-
-```bash
-python3 aha-skills-finder/scripts/validate-candidate-pool.py \
-  aha-skills-finder/examples/find-skill-finder/candidate-pool.json \
-  aha-skills-finder/examples/find-skill-audit/candidate-pool.json \
-  aha-skills-finder/examples/find-skill-multi-lane/candidate-pool.json
-```
-
-`validate-candidate-pool.py` is a red-line validator, not a full JSON Schema
-validator; schema compatibility needs a separate JSON Schema validator check.
-It does not judge discovery quality.
-
-Canonical examples are limited to `examples/find-skill-finder/`,
-`examples/find-skill-audit/`, and `examples/find-skill-multi-lane/`.
-
-Use `sources.yaml` as a source-family prompt and checklist, not a mandatory taxonomy. Use `scripts/collect-github-metrics.py` only for light raw GitHub signals; it is not a quality or adoption scorer.
+Use `sources.yaml` as a source-family prompt and checklist, not a mandatory taxonomy.
 
 ## Cannot Prove
 
