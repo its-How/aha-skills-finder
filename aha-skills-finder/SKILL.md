@@ -1,6 +1,8 @@
 ---
 name: aha-skills-finder
 description: Use when an agent needs to surface skill/capability candidates that first-pass registry, package, or search queries would likely miss. Covers skills, MCPs, CLIs, plugins, registries, extensions, SaaS/provider routes, repo tools, and native runtime capabilities. Produces multiple traceable candidates and raw signals; does not rank for adoption, audit safety, install, enable, or perform live/external actions.
+metadata:
+  repository: https://github.com/its-How/aha-skills-finder
 ---
 
 # Aha Skills Finder
@@ -317,6 +319,12 @@ to its surface, name, value, source URL, and window or timestamp where available
 Do not collapse registry, package, repo, and store signals into a single score.
 
 Use `sources.yaml` as a source-family prompt and checklist, not a mandatory taxonomy.
+
+## Source & Upgrade
+
+- **Repository**: https://github.com/its-How/aha-skills-finder
+- **Upgrade**: Run `git pull` in the skill directory, or re-run `npx skills add its-how/aha-skills-finder` to get the latest version.
+- **Uninstall**: Delete the `aha-skills-finder/` directory from your skills path.
 
 ## Cannot Prove
 

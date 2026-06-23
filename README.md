@@ -16,6 +16,20 @@ It does not recommend adoption, rank winners, audit safety or source quality, in
 
 ## Installation
 
+### Option 1: skills.sh
+
+```bash
+npx skills add its-how/aha-skills-finder
+```
+
+### Option 2: ClawHub
+
+```bash
+clawhub install aha-skills-finder
+```
+
+### Option 3: Manual copy
+
 Copy the `aha-skills-finder/` directory into your agent runtime's skills path.
 
 ## Repo Contents
