@@ -41,4 +41,4 @@ Copy the `aha-skills-finder/` directory into your agent runtime's skills path.
 
 ## License
 
-MIT.
+MIT-0.
