@@ -1,8 +1,11 @@
 ---
 name: aha-skills-finder
 description: Use when an agent needs to surface skill/capability candidates that first-pass registry, package, or search queries would likely miss. Covers skills, MCPs, CLIs, plugins, registries, extensions, SaaS/provider routes, repo tools, and native runtime capabilities. Produces multiple traceable candidates and raw signals; does not rank for adoption, audit safety, install, enable, or perform live/external actions.
+license: MIT-0
+compatibility: "Runtime-agnostic method; benefits from agent runtime with web search and fetch capabilities. Operates in fail-fast mode without search."
 metadata:
   repository: https://github.com/its-How/aha-skills-finder
+  version: "1.0.0"
 ---
 
 # Aha Skills Finder
